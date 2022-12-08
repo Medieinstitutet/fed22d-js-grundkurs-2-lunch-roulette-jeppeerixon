@@ -23,7 +23,7 @@ const userPosition = {
   lng: 0,
 };
 
-declare let google: any;
+declare var google: any;
 
 let map: any;
 let service: any;
@@ -44,7 +44,7 @@ function initMap(): void {
   );
 
   // Marker for user position
-  const marker = new google.maps.Marker({
+  new google.maps.Marker({
     position: userPosition,
     map: map,
   });
@@ -63,7 +63,7 @@ function initMap(): void {
   function createMarker(place: google.maps.places.PlaceResult) {
     const contentString: string = `<h4>${place.name}</h4>`
     + `Betyg: ${place.rating}<br>`
-    + `Öppet nu: ${place.opening_hours.open_now}<br>`;
+    + `Öppet nu: byt till openNow <br>`;
 
     if (!place.geometry || !place.geometry.location) {
       return;
@@ -101,8 +101,8 @@ function initMap(): void {
   }
 }
 
-// Position hittad
-function positionSuccess(position) {
+// Position hittadn
+function positionSuccess(position: any) {
   userPosition.lat = position.coords.latitude;
   userPosition.lng = position.coords.longitude;
 
@@ -120,5 +120,5 @@ function positionFailed() {
 
 // Koll om GPS-stöd finns OM stöd finns för GPS, hämta användarens position
 if (navigator.geolocation) {
-  const currentPosition = navigator.geolocation.getCurrentPosition(positionSuccess, positionFailed);
+  navigator.geolocation.getCurrentPosition(positionSuccess, positionFailed);
 }
