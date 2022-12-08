@@ -2,7 +2,6 @@
 @use "vendor/reset";
 
 :root {
-  // TODO: Går bra att radera kod även här!
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: rem(16px);
   line-height: 24px;
@@ -17,48 +16,18 @@
   text-size-adjust: 100%;
 }
 
-// TODO: Radera mig! Jag är bara ett exempel.
 main {
   padding: 20px;
-}
-
-.app {
-  margin-block: 20px;
   display: flex;
   gap: 20px;
   justify-content: space-around;
+}
 
-  .card {
-    $card-size: 250px;
+#map {
+  height: 400px;
+  width: 100%;
+}
 
-    width: 0.6413 * $card-size;
-    height: $card-size;
-    cursor: pointer;
-    background: #102a3f;
-    border-radius: 8px;
-    display: flex;
-    font-weight: bold;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
-
-    .front {
-      font-size: rem(50px);
-    }
-
-    .back {
-      display: none;
-    }
-
-    &.visible {
-      .front {
-        display: none;
-      }
-
-      .back {
-        display: block;
-      }
-    }
-  }
+div {
+  color:#242424;
 }
