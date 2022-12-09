@@ -25,11 +25,15 @@ const userPosition = {
 
 // variabel för sök radius
 let chosenDistance: number;
+const names: string[] = [];
 
 // Variablar för användar input
 const selectedDistance = document.querySelectorAll('input[name="distance"]') as NodeListOf<Element>;
 const minRating = document.querySelector('#slideRating') as HTMLInputElement;
 const mapButton = document.querySelector('#showMap') as HTMLButtonElement;
+const roulette = document.querySelector('#roulette') as HTMLElement;
+const rouletteButton = document.querySelector('#showResult') as HTMLButtonElement;
+const resultInfo = document.querySelector('#resultInfo') as HTMLElement;
 
 // Variblar för maps
 declare let google: any;
@@ -78,6 +82,8 @@ function initMap(): void {
   service.nearbySearch(request, handleResults);
 
   function createMarker(place: google.maps.places.PlaceResult) {
+    names.push(place.name);
+
     const contentString: string = `<h4>${place.name}</h4>`
     + `Betyg: ${place.rating}<br>`
     + `Öppet nu: byt till openNow <br>`;
@@ -116,6 +122,14 @@ function initMap(): void {
       }
     }
   }
+
+  //Visar vår resultat ruta
+  roulette.style.display = 'block';
+}
+
+function rouletteLunch() {
+  const randomResturant = names[Math.floor(Math.random() * names.length)];
+  resultInfo.textContent = `Du ska äta på ${randomResturant}`;
 }
 
 // Position hittadn
@@ -146,3 +160,6 @@ for (let i = 0; i <= selectedDistance!.length; i++){
 
 // skapar vår karta utifrån våra val
 mapButton.addEventListener('click', initMap);
+
+// visa vår utvalda resturang
+rouletteButton.addEventListener('click', rouletteLunch);
