@@ -6,11 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <title>Jeppes Lunch Roulette</title>
-    <script type="module" crossorigin src="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/assets/index.dd0e9204.js"></script>
-    <link rel="stylesheet" href="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/assets/index.c0f0cd82.css">
+    <script type="module" crossorigin src="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/assets/index.49a62e7d.js"></script>
+    <link rel="stylesheet" href="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/assets/index.85ccb18d.css">
   </head>
   <body>
+    
     <main>
+      <header id="headerStart">
+        <h1>What should we eat?</h1>
+        <h3>I don't know =(</h3>
+        <form>
+          <p>Please select distance:</p>
+          <input type="radio" id="walk" name="distance" value="500"><input type="radio" id="bike" name="distance" value="1000"><input type="radio" id="car" name="distance" value="2000"><br>
+
+          <label for="walk">Walk</label><label for="bike">Bike</label><label for="car">Car</label><br>
+          
+          
+          <p>Minimum rating:</p>
+          <label for="one">1</label><input type="range" min="1" max="5" value="2.5" step="0.5" id="slideRating"><label for="five">5</label><br>
+          <button type="button" id="showMap">Sök resturanger!</button>
+        </form>
+      </header>
       <div id="map"></div>
     </main>
     
