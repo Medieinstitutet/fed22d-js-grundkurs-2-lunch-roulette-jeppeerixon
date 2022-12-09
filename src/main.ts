@@ -23,13 +23,28 @@ const userPosition = {
   lng: 0,
 };
 
-declare var google: any;
+// variabel för sök radius
+let chosenDistance: number;
 
+// Variablar för användar input
+const selectedDistance = document.querySelectorAll('input[name="distance"]') as NodeListOf<Element>;
+const minRating = document.querySelector('#slideRating') as HTMLInputElement;
+const mapButton = document.querySelector('#showMap') as HTMLButtonElement;
+
+// Variblar för maps
+declare let google: any;
 let map: any;
 let service: any;
 let infowindow: any;
 
 // ======= FUNKTIONER ======// //======= FUNKTIONER ======// //======= FUNKTIONER ======// //======= FUNKTIONER ======//
+
+function getSelectedDistance(e: any) {
+  if (e.currentTarget.checked) {
+    console.log(`You selected ${e.currentTarget.value}`);
+    chosenDistance = e.currentTarget.value;
+  }
+}
 
 // Skapar kartan med våra värden
 // zoom: högre värde mer zoom
@@ -52,9 +67,11 @@ function initMap(): void {
   // Leta närliggande restauranger inom radie utifrån användarens position
   const request = {
     location: userPosition,
-    radius: '500',
+    radius: chosenDistance,
     type: ['restaurant'],
   };
+  console.log(chosenDistance);
+  console.log(minRating.value);
 
   // Gör en sökning… vänta på resultaten
   service = new google.maps.places.PlacesService(map);
@@ -93,7 +110,7 @@ function initMap(): void {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (let i = 0; i < results.length; i++) {
         // printa en kartnål
-        if (results[i].rating >= 4) {
+        if (results[i].rating >= minRating.value) {
           createMarker(results[i]);
         }
       }
@@ -107,8 +124,6 @@ function positionSuccess(position: any) {
   userPosition.lng = position.coords.longitude;
 
   console.log(userPosition.lat, userPosition.lng);
-
-  initMap();
 }
 
 // Hittade ingen position
@@ -122,3 +137,12 @@ function positionFailed() {
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(positionSuccess, positionFailed);
 }
+
+// Eventlistner för val av distance
+
+for (let i = 0; i <= selectedDistance!.length; i++){
+  selectedDistance[i]?.addEventListener('change', getSelectedDistance);
+}
+
+// skapar vår karta utifrån våra val
+mapButton.addEventListener('click', initMap);

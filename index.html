@@ -8,7 +8,23 @@
     <title>Jeppes Lunch Roulette</title>
   </head>
   <body>
+    
     <main>
+      <header id="headerStart">
+        <h1>What should we eat?</h1>
+        <h3>I don't know =(</h3>
+        <form>
+          <p>Please select distance:</p>
+          <input type="radio" id="walk" name="distance" value="500"><input type="radio" id="bike" name="distance" value="1000"><input type="radio" id="car" name="distance" value="2000"><br>
+
+          <label for="walk">Walk</label><label for="bike">Bike</label><label for="car">Car</label><br>
+          
+          
+          <p>Minimum rating:</p>
+          <label for="one">1</label><input type="range" min="1" max="5" value="2.5" step="0.5" id="slideRating"><label for="five">5</label><br>
+          <button type="button" id="showMap">Sök resturanger!</button>
+        </form>
+      </header>
       <div id="map"></div>
     </main>
     

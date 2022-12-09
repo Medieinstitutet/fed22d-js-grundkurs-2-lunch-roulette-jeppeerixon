@@ -20,7 +20,9 @@ main {
   padding: 20px;
   display: flex;
   gap: 20px;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #map {
