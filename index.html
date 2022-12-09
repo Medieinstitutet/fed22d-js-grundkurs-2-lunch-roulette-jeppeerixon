@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- TODO: glöm ej att byta språk här -->
+<html lang="sv"> 
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="/js-template/favicon.ico" />
+    <link rel="icon" type="image/ico" href="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt</title>
-    <script type="module" crossorigin src="/js-template/assets/index.288365a0.js"></script>
-    <link rel="stylesheet" href="/js-template/assets/index.09951560.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <title>Jeppes Lunch Roulette</title>
+    <script type="module" crossorigin src="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/assets/index.dd0e9204.js"></script>
+    <link rel="stylesheet" href="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/assets/index.c0f0cd82.css">
   </head>
   <body>
     <main>
-      <div class="app" id="app"></div> <!-- TODO: går bra att radera -->
-      <!-- TODO: skriv din kod här, innan script-taggen -->
+      <div id="map"></div>
     </main>
+    
+    <!-- script för att calla maps med vår API nyckel -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_9umYXe5R3EIcKtCuaWmKEPEycMdDJ6U&libraries=places&callback">
+    </script>
 
-    <!-- TODO
+    
+    
+  </body>
+</html>
+
+<!-- TODO innan inlämning!
     - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
     - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
     - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
     -->
-    
-  </body>
-</html>
