@@ -1,13 +1,5 @@
 import './style/style.scss';
 
-// All kod härifrån och ner är bara ett exempel för att komma igång
-
-// I denna utils-fil har vi lagrat funktioner som ofta används, t.ex. en "blanda array"-funktion
-// import { shuffle } from './utils';
-
-// I denna fil har vi lagrat vår "data", i detta exempel en ofullständig kortlek
-// import exampleCardDeck from './exampleArray';
-
 // ======= VARIABLAR ======// //======= VARIABLAR ======// //======= VARIABLAR ======// //======= VARIABLAR ======//
 
 // Declare scope för eventuell import/export
@@ -50,6 +42,48 @@ function getSelectedDistance(e: any) {
   }
 }
 
+function createMarker(place: google.maps.places.PlaceResult) {
+  names.push(place.name);
+
+  const contentString: string = `<h4>${place.name}</h4>`
+  + `Betyg: ${place.rating}<br>`
+  + `Öppet nu: byt till openNow <br>`;
+
+  if (!place.geometry || !place.geometry.location) {
+    return;
+  }
+
+  const markerResult = new google.maps.Marker({
+    map,
+    position: place.geometry.location,
+  });
+
+  console.dir(place);
+
+  google.maps.event.addListener(markerResult, 'click', () => {
+    infowindow = new google.maps.InfoWindow({
+      content: contentString,
+      ariaLabel: contentString,
+    });
+    infowindow.open({
+      anchor: markerResult,
+      map,
+    });
+  });
+}
+
+// Skriv ut resultaten på kartan
+function handleResults(results: string | any[], status: any) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (let i = 0; i < results.length; i++) {
+      // printa en kartnål
+      if (results[i].rating >= minRating.value) {
+        createMarker(results[i]);
+      }
+    }
+  }
+}
+
 // Skapar kartan med våra värden
 // zoom: högre värde mer zoom
 // center: vart kartan ska fokusera
@@ -81,49 +115,7 @@ function initMap(): void {
   service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, handleResults);
 
-  function createMarker(place: google.maps.places.PlaceResult) {
-    names.push(place.name);
-
-    const contentString: string = `<h4>${place.name}</h4>`
-    + `Betyg: ${place.rating}<br>`
-    + `Öppet nu: byt till openNow <br>`;
-
-    if (!place.geometry || !place.geometry.location) {
-      return;
-    }
-
-    const markerResult = new google.maps.Marker({
-      map,
-      position: place.geometry.location,
-    });
-
-    console.dir(place);
-
-    google.maps.event.addListener(markerResult, 'click', () => {
-      infowindow = new google.maps.InfoWindow({
-        content: contentString,
-        ariaLabel: contentString,
-      });
-      infowindow.open({
-        anchor: markerResult,
-        map,
-      });
-    });
-  }
-
-  // Skriv ut resultaten på kartan
-  function handleResults(results: string | any[], status: any) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      for (let i = 0; i < results.length; i++) {
-        // printa en kartnål
-        if (results[i].rating >= minRating.value) {
-          createMarker(results[i]);
-        }
-      }
-    }
-  }
-
-  //Visar vår resultat ruta
+  // Visar vår resultat ruta
   roulette.style.display = 'block';
 }
 
@@ -154,7 +146,7 @@ if (navigator.geolocation) {
 
 // Eventlistner för val av distance
 
-for (let i = 0; i <= selectedDistance!.length; i++){
+for (let i = 0; i <= selectedDistance!.length; i++) {
   selectedDistance[i]?.addEventListener('change', getSelectedDistance);
 }
 
