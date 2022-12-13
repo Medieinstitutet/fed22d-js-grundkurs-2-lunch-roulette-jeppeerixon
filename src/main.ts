@@ -153,5 +153,5 @@ for (let i = 0; i <= selectedDistance!.length; i++) {
 // skapar vår karta utifrån våra val
 mapButton.addEventListener('click', initMap);
 
-// visa vår utvalda resturang
+// visa vår slumpmässigt utvalda resturang
 rouletteButton.addEventListener('click', rouletteLunch);
