@@ -22,10 +22,12 @@ const names: string[] = [];
 // Variablar för användar input
 const selectedDistance = document.querySelectorAll('input[name="distance"]') as NodeListOf<Element>;
 const minRating = document.querySelector('#slideRating') as HTMLInputElement;
+const outputRating = document.querySelector('#showRating') as HTMLElement;
 const mapButton = document.querySelector('#showMap') as HTMLButtonElement;
 const roulette = document.querySelector('#roulette') as HTMLElement;
 const rouletteButton = document.querySelector('#showResult') as HTMLButtonElement;
 const resultInfo = document.querySelector('#resultInfo') as HTMLElement;
+const mapDiv = document.getElementById('map') as HTMLElement;
 
 // Variblar för maps
 declare let google: any;
@@ -108,8 +110,6 @@ function initMap(): void {
     radius: chosenDistance,
     type: ['restaurant'],
   };
-  console.log(chosenDistance);
-  console.log(minRating.value);
 
   // Gör en sökning… vänta på resultaten
   service = new google.maps.places.PlacesService(map);
@@ -117,11 +117,21 @@ function initMap(): void {
 
   // Visar vår resultat ruta
   roulette.style.display = 'block';
+
+  // scrollar till rätt plats
+  mapDiv.scrollIntoView();
 }
 
 function rouletteLunch() {
   const randomResturant = names[Math.floor(Math.random() * names.length)];
   resultInfo.textContent = `Du ska äta på ${randomResturant}`;
+  resultInfo.scrollIntoView();
+}
+
+function updateRating() {
+  const numrating = minRating.value;
+  const resultRating = Number(numrating).toFixed(1);
+  outputRating.textContent = resultRating;
 }
 
 // Position hittadn
@@ -155,3 +165,6 @@ mapButton.addEventListener('click', initMap);
 
 // visa vår slumpmässigt utvalda resturang
 rouletteButton.addEventListener('click', rouletteLunch);
+
+// updatera rating
+minRating.addEventListener('change', updateRating);
