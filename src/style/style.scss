@@ -8,14 +8,14 @@ $light-color: beige;
 
 
 html { 
-  background: url(../img/food_buffet_rumman-amin-nKs-oXRGGEg-unsplash.jpg) no-repeat center center fixed; 
+  background: url(./img/food_buffet_rumman-amin-nKs-oXRGGEg-unsplash.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   //thanks https://unsplash.com/@rumanamin for picture
 
-}
+} 
 
 body {
   background-color: rgba($main-color, 0.95);
