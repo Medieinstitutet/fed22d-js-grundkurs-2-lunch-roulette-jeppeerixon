@@ -168,3 +168,5 @@ rouletteButton.addEventListener('click', rouletteLunch);
 
 // updatera rating
 minRating.addEventListener('change', updateRating);
+
+// börja med denna sen https://developers.google.com/maps/documentation/javascript/examples/marker-remove
