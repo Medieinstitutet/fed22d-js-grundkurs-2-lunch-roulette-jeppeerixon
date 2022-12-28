@@ -8,14 +8,14 @@ $light-color: beige;
 
 
 html { 
-  background: url(/img/food_buffet_rumman-amin-nKs-oXRGGEg-unsplash.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url(/img/food_buffet_rumman-amin-nKs-oXRGGEg-unsplash.jpg) no-repeat center center fixed;
   background-size: cover;
+  height: 100%;
+  overflow: hidden;
   //thanks https://unsplash.com/@rumanamin for picture
+}
+  
 
-} 
 
 body {
   background-color: rgba($main-color, 0.85);
@@ -52,6 +52,8 @@ main {
 #map {
   height: 400px;
   width: 100%;
+  border-radius: 15px;
+  max-width: 500px;
 }
 
 div {
@@ -84,7 +86,20 @@ form {
   }
 }
 
-// inte riktigt klar med denna
+#showRating {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: $high-color;
+  box-shadow: 0px 0px 3px 1px $high-color;
+}
+
+#resultInfo {
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+// Rating slider styling
 input[type="range"] {
   -webkit-appearance: none;
   width: 150px;
@@ -111,17 +126,4 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   background: $high-color;
   cursor: pointer;
-}
-
-#showRating {
-  margin-left: 10px;
-  padding: 5px;
-  border-radius: 10px;
-  background-color: $high-color;
-  box-shadow: 0px 0px 3px 1px $high-color;
-}
-
-#resultInfo {
-  margin-top: 20px;
-  font-size: 2rem;
 }

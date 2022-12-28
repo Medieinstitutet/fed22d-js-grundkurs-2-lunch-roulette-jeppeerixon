@@ -102,6 +102,8 @@ function initMap(): void {
   new google.maps.Marker({
     position: userPosition,
     map: map,
+    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+    label: 'X'
   });
 
   // Leta närliggande restauranger inom radie utifrån användarens position
@@ -144,7 +146,7 @@ function positionSuccess(position: any) {
 
 // Hittade ingen position
 function positionFailed() {
-  console.error('Kunde inte hitta din aktuella position.');
+  resultInfo.textContent = 'Tillåt GPS för att använda hemsidan!';
 }
 
 // ===== PROGRAMLOGIK =====// //===== PROGRAMLOGIK =====// //===== PROGRAMLOGIK =====// //====== PROGRAMLOGIK =====//
