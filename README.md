@@ -2,7 +2,7 @@
 https://medieinstitutet.github.io/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/
 
 ## Tech stack:
-TypeScript, HTML & SCSS, Vite, NodeJS, ESlint
+TypeScript, , GoogleMapsAPI, HTML & SCSS, Vite, NodeJS
 
 ## HTML VALIDATION
 ![HTML Validering](./screenshots/html_validation.jpg)
