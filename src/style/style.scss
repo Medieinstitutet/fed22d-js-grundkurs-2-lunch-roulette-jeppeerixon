@@ -48,6 +48,15 @@ main {
   text-align: center;
 }
 
+@media screen and (max-width: 600px) {
+  header {
+    img {
+      height: 200px;
+      width: auto;
+    }
+  }
+}
+
 #map {
   height: 400px;
   width: 100%;

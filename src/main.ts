@@ -170,7 +170,6 @@ function hideMarkers(): void {
 function rouletteLunch() {
   const randomNumber = Math.floor(Math.random() * names.length)
   randomResturant = names[randomNumber];
-  resultInfo.textContent = `Du ska äta på ${randomResturant}`;
   resultInfo.scrollIntoView();
   hideMarkers();
 
@@ -182,6 +181,10 @@ function rouletteLunch() {
   // Gör en sökning… vänta på resultaten
   service = new google.maps.places.PlacesService(map);
   service.findPlaceFromQuery(request, handleResults);
+
+  // lite delay för extra spänning
+  resultInfo.textContent = '';
+  setTimeout(function() {resultInfo.textContent = `Du ska äta på ${randomResturant}`}, 300);
 }
 
 // visar vår sliders värde
