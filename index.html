@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="sv"> 
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/favfavicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" >
+    <link rel="icon" type="image/ico" href="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/favfavicon.ico" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Take-Out Tombola</title>
     <script type="module" crossorigin src="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/assets/index.7fa4b1a0.js"></script>
-    <link rel="stylesheet" href="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/assets/index.081b9ba9.css">
+    <link rel="stylesheet" href="/fed22d-js-grundkurs-2-lunch-roulette-jeppeerixon/assets/index.54caca0c.css">
   </head>
   <body>
     <main>
@@ -22,15 +22,15 @@
           <label for="car">Cykel</label><input type="radio" id="car" name="distance" value="2000"><br>        
           
           <p>Längst tillåtna betyg:</p>
-          <input type="range" min="1" max="5" value="3" step="0.1" id="slideRating" class="slider"><label for="rating" id="showRating">2.5</label><br>
+          <input type="range" min="1" max="5" value="3" step="0.1" id="slideRating" class="slider"><label for="slideRating" id="showRating">2.5</label><br>
           <button type="button" id="showMap">Sök resturanger!</button>
         </form>
       </header>
       <div id="map"></div>
-      <section id="roulette" class="result">
+      <div id="roulette" class="result">
         <button type="button" id="showResult">Slumpa result!</button>
         <p id="resultInfo"></p>
-      </section>
+      </div>
     </main>
     
     <!-- script för att calla maps med vår API nyckel -->
@@ -42,9 +42,3 @@
     
   </body>
 </html>
-
-<!-- TODO innan inlämning!
-    - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
-    - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
-    - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
-    -->
