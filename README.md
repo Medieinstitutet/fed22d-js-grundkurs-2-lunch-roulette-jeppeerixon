@@ -12,4 +12,4 @@ TypeScript, HTML & SCSS, Vite, NodeJS, ESlint
 ![CSS Validering](./screenshots/css_validation.jpg)
 
 ## LIGHTHOUSE VALIDATION
-![LIGHTHOUSE Validering](./images/lighthouse_analyzis.jpg)
+![LIGHTHOUSE Validering](./screenshots/lighthouse_analyzis.jpg)
